@@ -1,0 +1,53 @@
+.main_h {
+  padding: 20px 0;
+  text-align: center;
+  .main_tit {
+    display:inline-block;
+    vertical-align: top;
+  }
+  .menu {
+    width:1000px;
+    padding:0 24px;
+    box-sizing: border-box;
+    margin:24px auto 0;
+    .menu_list {
+      padding:14px;
+      text-align:left;
+      border-top:1px solid #efefef;
+      .menu_year {
+        display:inline-block;
+        vertical-align: top;
+        position:relative;
+        .year_t {
+          color:#949494;
+          font-size:24px;
+          display:block;
+        }
+        > ol {
+          width:1000px;
+          visibility: hidden;
+          position:absolute;
+          top:28px;
+          transition:0.2s;
+          overflow:hidden;
+          .item {
+            display:inline-block;
+            vertical-align: top;
+            a {
+              color:#666;
+              font-size:16px;
+              display:inline-block;
+              padding:14px;
+            }
+          }
+        }
+        &:hover {
+          > ol {
+            visibility: visible;
+            animation: main_menu 0.5s 1;
+          }
+        }
+      }
+    }
+  }
+}
