@@ -9,6 +9,7 @@ class App extends Component {
     super(props);
     this.state = {
       mode : "welcome",
+      selected_content_id:2,
       subject:{title:'WEB', sub:'world wide web'},
       welcome:{title:'WELCOME', sub:'welcome ! welcome'},
       contents:[
@@ -24,8 +25,16 @@ class App extends Component {
       _title = this.state.welcome.title;
       _sub = this.state.welcome.sub;
     } else if(this.state.mode === "read") {
-      _title = this.state.contents[0].title;
-      _sub = this.state.contents[0].desc;
+      var i = 0;
+      while(i < this.state.contents.length){
+        var data = this.state.contents[i];
+        if(data.id === this.state.selected_content_id) {
+          _title = data.title;
+          _sub = data.desc;
+          break;
+        }
+        i = i + 1;
+      }
     }
     return (
       <div className="App">
@@ -36,7 +45,16 @@ class App extends Component {
             this.setState({mode:'read'})
           }.bind(this)}
         />
-        <Nav data={this.state.contents}/>
+        <Nav 
+        onChangePage={function(id){
+          this.setState({
+            mode:'read',
+            selected_content_id:Number(id)
+          });
+          console.log(data);
+        }.bind(this)}
+          data={this.state.contents}
+        />
         <Content text="subtit" sub="Lorem Ipsum333" />
         <Content text="Lorem Ipsum2" sub="sub" />
       </div>
