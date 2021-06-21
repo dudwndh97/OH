@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>마름모 꼴을 그려보자.</title>
+</head>
+<body>
+  <div>
+
+  </div>
+
+  <script>
+    var num = prompt('몇 층으로 만들까요?')
+    for( star = 1; star <= num ; star +=2) {
+      console.log(' '.repeat((num-star)/2) + '*'.repeat(star) + ' '.repeat((num-star)/2))
+    } 
+    if ( star = num+2) {
+      for (star = num-2; 1 <= star; star -=2 ) {
+        console.log(' '.repeat((num-star)/2) + '*'.repeat(star) + ' '.repeat((num-star)/2))
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>01-1 JS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>JavaScript Can Change HTML Content</h1>
+    <p>document.getElementById("demo").innerHTML = "Hello JavaScript";</p>
+    <div class="box">
+      <p id='test'>Hello! World!</p>
+      <button onclick='document.getElementById("test").innerHTML = "<i>thx for click!<i>"'>Click me!</button>
+    </div>
+    <p>document.getElementById("test2").innerText = "<i>thx for click!<i>"</p>
+    <div class="box">
+      <p id='test2'>Hello! World!</p>
+      <button onclick='document.getElementById("test2").innerText = "<i>thx for click!<i>"'>Click me!</button>
+    </div>
+    <h1>JavaScript Can Change HTML Attribute Values</h1>
+    <p>document.getElementById('myImage').src='pic_bulbon.gif'</p>
+    <div class="box">
+      <p><img id="test3" src="" alt="test"></p>
+      <button
+        onclick='document.getElementById("test3").src = "https://via.placeholder.com/150"'
+      >150px 정사각형</button>
+      <button
+        onclick='document.getElementById("test3").src = "https://via.placeholder.com/100"'
+      >100px 정사각형</button>
+    </div>
+  </div>
+</body>
+</html>

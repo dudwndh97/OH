@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="shadow-box">
+      <div class="slide_content">
+        <ul class="slide_list" id="slide_list">
+          <li class="slide num01" id="slide"><img src="./202104_type1_2880.jpg" alt="" style="width:100%;height:auto;"></li>
+          <li class="slide num02" id="slide">Slide Two</li>
+          <li class="slide num03" id="slide">Slide Three</li>
+          <li class="slide num04" id="slide">Slide Four</li>
+          <li class="slide num05" id="slide">Slide Five</li>
+        </ul>
+      </div>
+      <div class="auto_box">
+        <button class="btn_auto" id="btn_auto"><span class="icon"></span>AutoPlay</button>
+      </div>
+    </div>
+    <div class="btn-cover prev off" id="btn_prev">
+      <button class="btn prev" onClick="viewPrev()"></button>
+    </div>
+    <div class="btn-cover next" id="btn_next">
+      <button class="btn next" onClick="viewNext()"></button>
+    </div>
+  </div>
+
+  <script>
+    var slideList = document.getElementById('slide_list')
+    var width = slideList.offsetWidth; 
+    const slideListItem = document.querySelectorAll('.slide');
+    var allList = slideListItem.length;  
+    var btnNext = document.getElementById('btn_next'); 
+    var btnPrev = document.getElementById('btn_prev');
+    var i = 0;
+
+    btnShow = () => {
+      if ( i == allList-1 ) {
+        btnNext.setAttribute("class","btn-cover next off")
+      } else if ( i == 0 ){
+        btnPrev.setAttribute("class","btn-cover prev off")
+      } else {
+        btnNext.setAttribute("class","btn-cover next")
+        btnPrev.setAttribute("class","btn-cover prev")
+      }
+    }
+
+    SlideGo = () => {
+      var moveWidth = width * i;
+      console.log(i);
+      slideList.setAttribute("style","transform:" + "translateX" + "(-" + moveWidth + "px)");
+    }
+
+    function viewNext() {
+      if (i < allList-1) {
+        i ++ ;
+        SlideGo();
+      }
+      btnShow();
+    }
+
+    function viewPrev() {
+      if (0 < i) {
+        i --;
+        SlideGo();
+      }
+      btnShow();
+    }
+
+    var btnAuto = document.getElementById("btn_auto");
+    var startAuto;
+    
+
+    btnAuto.onclick = function(){
+      if (btnAuto.classList.contains('in_autoplay')) {
+        clearInterval(
+          startAuto
+        );
+        btnAuto.classList.toggle('in_autoplay');
+      } else {
+        startAuto = setInterval(function(){ //clearInterval 하기 위해선 fuction안에 넣으면 안됨.
+        viewNext(); 
+        startAuto;
+        } ,3000);
+        btnAuto.classList.toggle('in_autoplay');
+      }
+    }
+
+  </script>
+</html>
+</body>

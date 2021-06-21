@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>끝말잇기 해보자</title>
+</head>
+<body>
+  <div>
+
+  </div>
+
+  <script>
+    var word = "가나다";
+    while(true) {
+      var newWord = prompt(word);
+      if (word[word.length - 1] === newWord[0]) {
+        word = newWord;
+      } else {
+        window.alert('제시어의 끝말로 시작하는 단어를 입력해주세요!')
+      }
+    }
+  </script>
+</body>
+</html>
